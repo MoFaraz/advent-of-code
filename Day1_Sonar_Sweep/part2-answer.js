@@ -1,6 +1,6 @@
-const fs = require('fs');
-fs.readFile('inputs.txt', function(err, data) {
-    if(err) throw err;
+const {readInput } = require('../utils/readInput') 
+
+const solve = (data) => {
     let stringArray = data.toString().split("\n");
     let array = stringArray.map(Number)
     let count = 0
@@ -8,6 +8,10 @@ fs.readFile('inputs.txt', function(err, data) {
         if (array[i]+array[i+1]+array[i+2] < array[i+1]+array[i+2]+array[i+3])
             count++
     }
-    console.log(count)
-});
+    return count 
+}
 
+(async () => {
+    const data = await readInput('./inputs.txt')
+    console.log(solve(data)) 
+})()

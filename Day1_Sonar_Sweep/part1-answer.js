@@ -1,6 +1,7 @@
-const fs = require('fs');
-fs.readFile('inputs.txt', function(err, data) {
-    if(err) throw err;
+const {readInput }= require('../utils/readInput')
+
+
+const solve = (data) => {
     let array = data.toString().split("\n");
     let count = 0
     for (let i = 0; i < array.length; i++){
@@ -8,5 +9,11 @@ fs.readFile('inputs.txt', function(err, data) {
             count++
     
     }
-    console.log(count)
-});
+    return count
+}
+(async() => {
+    const data = await readInput('./inputs.txt')
+    console.log(solve(data))
+})()
+
+
