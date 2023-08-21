@@ -1,6 +1,6 @@
-const fs = require('fs')
+import fs from 'fs'
 
-const readInput = (inputPath) => {
+export const readInput = (inputPath) => {
     return new Promise((resolve, reject) => {
         fs.readFile(inputPath, (err, data) => {
             if (err) {
@@ -13,6 +13,4 @@ const readInput = (inputPath) => {
     })
 }
 
-module.exports = {
-    readInput
-}
+

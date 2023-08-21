@@ -1,0 +1,10 @@
+{
+  "name": "2021",
+  "version": "1.0.0",
+  "description": "Solution of advent of code 2021 made in javascript",
+  "main": "index.js",
+  "keywords": [],
+  "author": "mofaraz",
+  "license": "ISC",
+  "type": "module"
+}

@@ -1,5 +1,4 @@
-const {readInput }= require('../utils/readInput')
-
+import { readInput } from '../utils/readInput.js'
 
 const solve = (data) => {
     let array = data.toString().split("\n");
@@ -11,9 +10,8 @@ const solve = (data) => {
     }
     return count
 }
-(async() => {
-    const data = await readInput('./inputs.txt')
-    console.log(solve(data))
-})()
+
+const data = await readInput('./inputs.txt')
+console.log(solve(data))
 
 
