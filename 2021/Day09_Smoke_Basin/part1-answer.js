@@ -1,4 +1,4 @@
-const {readInput} = require('../utils/readInput')
+import { readInput } from "../utils/readInput.js"
 
 const lowPoint = (data, col, row, i, j) => {
     if (i - 1 >= 0 && data[i][j] >= data[i - 1][j]) {
@@ -18,8 +18,8 @@ const lowPoint = (data, col, row, i, j) => {
 }
 
 const solve = (data) => {
-    const heightMap = data.split('\n').map((line) => 
-        line.split('').map((height) => (height)))
+    const heightMap = data.split('\n').map((line) =>
+        line.split('').map((height) => parseInt(height)))
 
     const row = heightMap[0].length
     const col = heightMap.length
@@ -32,11 +32,9 @@ const solve = (data) => {
         })
     })
 
-    console.log(answer)
+    return answer
 
 }
 
-(async () => {
-    const data = await readInput('./inputs2.txt')
-    solve(data)
-})()
+const data = await readInput('./inputs.txt')
+console.log(solve(data))

@@ -1,4 +1,4 @@
-const {readInput} = require('../utils/readInput')
+import { readInput } from '../utils/readInput.js'
 
 const solve = (data) => {
     let fish = data.split(',').map((n) => Number(n))

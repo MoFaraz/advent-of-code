@@ -1,11 +1,11 @@
-const fs = require('fs')
+import fs from 'fs'
 
 const map = {}
 const addToMap = (map, x, y) => {
     const key = `${x},${y}`
-    if (map[key]) 
+    if (map[key])
         map[key] ++
-    else 
+    else
         map[key] = 1
 }
 
@@ -19,28 +19,15 @@ const countOverlap = () => {
     }, 0)
 }
 
-const range = (num1, num2) => {
-    const count = Math.abs(num2 - num1) + 1 
-    return ([...Array(count).keys()].map((p) => {
-        if (num1 > num2)
-            return num1 - p
-        else 
-            return num1 + p
-    }))
-    
-}
-
 fs.readFile('inputs.txt', (err, data) => {
     if (err) console.log(err)
-    
+
     const lines = data.toString().split('\n').map((line) => line.replaceAll(' -> ', ',').split(',').map((n) => Number(n)))
-   
+
     lines.forEach((line) => {
         const [x1,y1,x2,y2] = line;
         const isVertical = x1 === x2
         const isHorizantal = y1 === y2
-        const isDiagnol = !isVertical && !isHorizantal
-        
 
         if (isVertical) {
             const minY = Math.min(y1, y2)
@@ -59,16 +46,7 @@ fs.readFile('inputs.txt', (err, data) => {
             }
         }
 
-        if (isDiagnol) {
-            const rangeX = range(x1, x2)
-            const rangeY = range(y1, y2)
-            rangeX.forEach((x, index) => {
-                const y = rangeY[index]
-                addToMap(map, x, y)
-            })
-            
-        }
     })
-    
+
         console.log(countOverlap())
 })

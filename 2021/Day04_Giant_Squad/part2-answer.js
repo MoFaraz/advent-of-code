@@ -1,12 +1,12 @@
-const fs = require('fs')
+import fs from 'fs'
 
 const checkRow = (board, bingoNumberIndexOnBoard) => {
     const rowIndex = Math.floor(bingoNumberIndexOnBoard / 5)
     const reducer = (markedTotal, columnIndex) => {
         const boardIndex = rowIndex * 5 + columnIndex
         if (board[boardIndex].marked)
-            return markedTotal + 1 
-        return markedTotal 
+            return markedTotal + 1
+        return markedTotal
     }
 
     const markedTotal = [0,1,2,3,4].reduce(reducer, 0)
@@ -14,7 +14,7 @@ const checkRow = (board, bingoNumberIndexOnBoard) => {
 }
 
 const checkColumn = (board, bingoNumberIndexOnBoard) => {
-    const columnIndex = bingoNumberIndexOnBoard % 5 
+    const columnIndex = bingoNumberIndexOnBoard % 5
     const reducer = (markedTotal, rowIndex) => {
         const boardIndex = rowIndex * 5 + columnIndex
         if (board[boardIndex].marked)
@@ -53,7 +53,7 @@ fs.readFile('inputs.txt', (err, data) => {
         }))
     })
     )
-    
+
     bingoNumbers.forEach((bingoNumber) => {
         return boards.forEach((boardObject) => {
             const { board, won } = boardObject
@@ -61,7 +61,7 @@ fs.readFile('inputs.txt', (err, data) => {
                 return
             }
             const bingoNumberOnBoard = board.find((item) => item.number === bingoNumber)
-            
+
             if (!bingoNumberOnBoard)
                 return
 

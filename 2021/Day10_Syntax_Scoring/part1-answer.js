@@ -1,9 +1,9 @@
-const { readInput } = require('../utils/readInput')
+import { readInput } from "../utils/readInput.js";
 
 const solve = (data) => {
-   
+
     const lines = data.split('\n')
-   
+
     const open = [ '(', '[', '{', '<' ];
     const close = [ ')', ']', '}', '>' ];
     const points = [ 3, 57, 1197, 25137 ];
@@ -17,8 +17,8 @@ const solve = (data) => {
             else {
                 const previous = stack.pop()
 
-                if (close[open.indexOf(previous)] !== char) 
-                    score += points[close.indexOf(char)]; 
+                if (close[open.indexOf(previous)] !== char)
+                    score += points[close.indexOf(char)];
             }
         }
     })
@@ -26,7 +26,5 @@ const solve = (data) => {
     return score
 }
 
-(async () => {
-    const data = await readInput('./inputs.txt')
-    console.log(solve(data))
-})()
+const data = await readInput('./inputs.txt')
+console.log(solve(data))

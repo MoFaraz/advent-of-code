@@ -1,4 +1,4 @@
-const { readInput } = require('../utils/readInput')
+import { readInput } from "../utils/readInput.js"
 
 const completionScoring = {
   ')': 1,
@@ -18,7 +18,7 @@ const isOpeningBracket = (bracket) => ['{', '[', '(', '<'].includes(bracket)
 const isCorrectClosingBracket = (openingBracket, closingBracket) => {
   if (!openingBracket) {
     return false
-  } 
+  }
   return matchingBrackets[openingBracket] === closingBracket
 }
 
@@ -61,8 +61,5 @@ const solve = (data) => {
   return completedLineScores[middleIndex]
 }
 
-(async () => {
 const data = await readInput('./inputs.txt')
-
 console.log(solve(data))
-})()

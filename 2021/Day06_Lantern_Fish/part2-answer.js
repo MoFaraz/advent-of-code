@@ -1,4 +1,4 @@
-const {readInput} = require('../utils/readInput')
+import { readInput } from "../utils/readInput.js"
 
 const sumFish = (occurenceArray) => {
   return occurenceArray.reduce((sum, fishCount) => sum + fishCount, 0)
@@ -18,7 +18,6 @@ const solve = (data) => {
   return sumFish(fishOccurence)
 }
 
-(async () => {
-    const data = await readInput('./inputs.txt')
-    console.log(solve(data))
-    })()
+const data = await readInput('./inputs.txt')
+
+console.log(solve(data))

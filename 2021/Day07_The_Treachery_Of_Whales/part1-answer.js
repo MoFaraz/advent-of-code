@@ -1,4 +1,4 @@
-const {readInput} = require('../utils/readInput')
+import { readInput } from "../utils/readInput.js"
 
 const calculateFuel = (positions, number) => {
     return positions.reduce((fuel, num) => fuel + (Math.abs(num - number)), 0)
@@ -12,7 +12,7 @@ const solve = (data) => {
     )
     let minFuel
     for (let alignPos = minAlignPos; alignPos <= maxAlignPos; alignPos++) {
-        let fuel = calculateFuel(positions, alignPos) 
+        let fuel = calculateFuel(positions, alignPos)
         if (fuel < minFuel || !minFuel)
             minFuel = fuel
     }
@@ -20,7 +20,5 @@ const solve = (data) => {
     return minFuel
 }
 
-(async () => {
-    const data = await readInput('./inputs.txt')
-    console.log(solve(data))
-})()
+const data = await readInput('./inputs.txt')
+console.log(solve(data))
